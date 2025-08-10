@@ -1,3 +1,11 @@
+
+<img width="1536" height="1024" alt="ChatGPT Image Aug 10, 2025, 12_59_29 PM" src="https://github.com/user-attachments/assets/573fd1ff-7132-4128-bf05-0a9c88907568" />
+
+
+
+
+
+
 # ​ Nuke MCP (Portable) with Claude
 **Drop Claude into Nuke — portable AI-powered MCP for lightning-fast node edits, context automation, and smarter compositing.**
 
