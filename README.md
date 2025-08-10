@@ -17,4 +17,4 @@
 - 🌐 **Offline-capable** — works with Claude Desktop portable
 - 🛠 **Pipeline-friendly** — integrates seamlessly into studio workflows
 
-📥 **[Download Latest Release](https://github.com/YOURUSERNAME/nuke-mcp/releases)** • 📚 **[Read the Docs](docs/README.md)**
+📥 **[Download Latest Release](https://github.com/kevkshore/nuke-mcp/releases)** • 📚 **[Read the Docs](docs/README.md)**
