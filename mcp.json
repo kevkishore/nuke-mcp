@@ -1,0 +1,6 @@
+{
+  "name": "Nuke MCP Portable",
+  "command": "uvx",
+  "args": ["nuke-mcp"],
+  "type": "stdio"
+}
