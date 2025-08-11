@@ -1,377 +1,115 @@
+# 🎬 Nuke MCP - Enhanced Claude AI Integration
 
-<img width="1536" height="1024" alt="ChatGPT Image Aug 10, 2025, 12_59_29 PM" src="https://github.com/user-attachments/assets/573fd1ff-7132-4128-bf05-0a9c88907568" />
+A comprehensive integration between **Foundry Nuke** and **Claude AI** using the Model Context Protocol (MCP), featuring advanced VFX workflows, camera tracking, deep compositing, and machine learning capabilities.
 
+## 📁 Project Structure
 
+```
+nuke_mcp/
+├── 📄 .gitignore                    # Git ignore patterns
+├── 📄 README.md                     # This file
+│
+├── 📁 src/                          # Core source code
+│   ├── 🎯 enhanced_nuke_mcp_server.py    # MCP server (runs outside Nuke)
+│   ├── 🔌 enhanced_nuke_addon.py         # Nuke plugin (runs inside Nuke)  
+│   └── 🔧 portable_init.py               # Package initialization
+│
+├── 📁 setup/                        # Installation & setup scripts
+│   ├── ⚙️ setup_script.bat              # Windows setup script
+│   ├── 🐧 linux_setup.sh                # Unix/Linux setup script
+│   ├── 🚀 portable_start_script.bat     # Windows launcher
+│   ├── ✅ install_check_script.py       # Installation verification
+│   └── 🐳 docker_support.dockerfile     # Docker support
+│
+├── 📁 config/                       # Configuration files
+│   ├── 📋 requirements.txt              # Python dependencies
+│   ├── ⚙️ pyproject.toml               # Package configuration
+│   └── 📦 manifest.in                   # Package manifest
+│
+└── 📁 docs/                         # Documentation
+    ├── 📖 README.md                     # Main user documentation
+    ├── 📄 main_readme.md                # Additional documentation
+    └── 📜 LICENSE.md                    # License information
+```
 
+## ✨ Features
 
+- 🎯 **Camera Tracking & 3D Scene Setup** - Automated camera tracking workflows
+- 🌊 **Deep Compositing Pipelines** - Advanced deep image compositing
+- 📋 **Template/Toolset Management** - Save and load custom node templates
+- 🤖 **Machine Learning Integration** - CopyCat neural network support
+- 🔑 **Advanced Keying & Compositing** - Professional keying workflows
+- ⚡ **Batch Processing** - Process multiple files automatically
+- 🎨 **Comprehensive VFX Workflows** - End-to-end production tools
 
+## 🚀 Quick Start
 
-# ​ Nuke MCP (Portable) with Claude
-**Drop Claude into Nuke — portable AI-powered MCP for lightning-fast node edits, context automation, and smarter compositing.**
+### Windows
+```batch
+cd setup/
+setup_script.bat
+```
 
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Version](https://img.shields.io/github/v/release/YOURUSERNAME/nuke-mcp)](https://github.com/YOURUSERNAME/nuke-mcp/releases)
-[![GitHub Stars](https://img.shields.io/github/stars/YOURUSERNAME/nuke-mcp?style=social)](https://github.com/YOURUSERNAME/nuke-mcp/stargazers)
-
----
-# Enhanced Nuke MCP - Complete Setup Guide
-
-This enhanced version incorporates comprehensive VFX workflow automation including camera tracking, deep compositing, template management, machine learning capabilities, and much more.
-
-## 🚀 New Features Added
-
-### Camera Tracking & 3D
-- **Camera Tracking**: Automated CameraTracker setup and solving
-- **3D Scene Creation**: Complete 3D pipeline setup with cameras and geometry
-- **Motion Analysis**: Advanced motion tracking and analysis tools
-
-### Deep Compositing
-- **Deep Pipeline Setup**: Automated deep compositing workflows
-- **Deep Merging**: Sophisticated deep image combining
-- **Z-depth Processing**: Advanced depth-based operations
-
-### Template Management
-- **Template Loading**: Load predefined toolsets and templates
-- **Template Saving**: Save custom node configurations
-- **Category Organization**: Organized template library system
-
-### Machine Learning
-- **CopyCat Integration**: AI-powered image processing
-- **Model Training**: Automated neural network training
-- **Inference Pipeline**: Real-time ML inference integration
-
-### Advanced Compositing
-- **Smart Keying**: Automated green/blue screen workflows
-- **Motion Blur**: Vector-based motion blur systems
-- **Multi-layer Compositing**: Complex compositing pipelines
-
-### Batch Processing
-- **Directory Processing**: Batch process entire directories
-- **Script Automation**: Run custom processing scripts
-- **Pipeline Integration**: Asset management integration
-
-## 📦 Installation
-
-### 1. File Placement
-
+### Linux/macOS
 ```bash
-# Copy the addon to your Nuke directory
-cp enhanced_nuke_addon.py ~/.nuke/
-cp enhanced_nuke_mcp_server.py /path/to/your/mcp/servers/
-
-# Or for Windows
-copy enhanced_nuke_addon.py %USERPROFILE%\.nuke\
-copy enhanced_nuke_mcp_server.py C:\path\to\mcp\servers\
+cd setup/
+chmod +x linux_setup.sh
+./linux_setup.sh
 ```
 
-### 2. Nuke Initialization
+## 📖 Documentation
 
-Create or edit your `~/.nuke/init.py` file:
+- **Main Documentation**: [docs/README.md](docs/README.md)
+- **Additional Info**: [docs/main_readme.md](docs/main_readme.md)
+- **License**: [docs/LICENSE.md](docs/LICENSE.md)
 
-```python
-# Enhanced Nuke MCP Auto-load
-import nuke_enhanced_mcp_addon
+## 🔧 Development
 
-# Optional: Auto-start server on Nuke launch
-nuke.addOnScriptLoad(lambda: nuke_enhanced_mcp_addon.start_enhanced_server(9876))
-```
+### File Organization
+- **`src/`** - Core application code and Nuke integration
+- **`setup/`** - All installation, setup, and deployment scripts
+- **`config/`** - Configuration files and dependencies
+- **`docs/`** - User and developer documentation
 
-### 3. MCP Server Configuration
+### Key Components
+1. **Enhanced MCP Server** (`src/enhanced_nuke_mcp_server.py`)
+   - Runs outside Nuke as Claude MCP server
+   - Handles communication with Claude Desktop
+   - Provides 40+ advanced VFX tools
 
-Add to your Claude Desktop config (`claude_desktop_config.json`):
+2. **Nuke Addon** (`src/enhanced_nuke_addon.py`)
+   - Runs inside Nuke as Python plugin
+   - Provides UI panel and menu integration
+   - Executes actual node operations
 
-```json
-{
-  "mcpServers": {
-    "enhanced-nuke": {
-      "command": "python",
-      "args": [
-        "/path/to/enhanced_nuke_mcp_server.py"
-      ],
-      "env": {
-        "NUKE_HOST": "localhost",
-        "NUKE_PORT": "9876"
-      },
-      "trusted": true
-    }
-  }
-}
-```
+3. **Setup Scripts** (`setup/`)
+   - Automated installation for Windows and Unix
+   - Dependency management and environment setup
+   - Integration with Nuke plugin directory
 
-## 🎯 Usage Examples
+## 📋 Requirements
 
-### Camera Tracking Workflow
+- **Python 3.10+**
+- **Foundry Nuke 13.0+** (tested with 13.x, 14.x, 15.x)
+- **Claude Desktop** with MCP support
+- **Windows/macOS/Linux** (cross-platform)
 
-```python
-# Claude instruction: "Set up camera tracking for my plate sequence"
+## 🤝 Contributing
 
-# 1. Create read node for tracking plate
-create_node(
-    node_type="Read",
-    name="TrackingPlate",
-    parameters={"file": "/path/to/plate.####.exr"}
-)
+The project is now well-organized for development:
 
-# 2. Set up camera tracker
-create_camera_tracker(
-    source_name="TrackingPlate",
-    name="CameraTracker1",
-    tracking_features={
-        "number_features": 300,
-        "feature_size": 12,
-        "feature_separation": 25
-    }
-)
+1. **Add features** to `src/enhanced_nuke_mcp_server.py`
+2. **Update Nuke integration** in `src/enhanced_nuke_addon.py`
+3. **Modify setup** in `setup/` scripts
+4. **Update docs** in `docs/` directory
+5. **Configure dependencies** in `config/`
 
-# 3. Solve the camera
-solve_camera_track(
-    camera_tracker_node="CameraTracker1",
-    solve_method="Full",
-    refine_intrinsics=True,
-    solve_focal_length=True
-)
+## 📄 License
 
-# 4. Create 3D scene with solved camera
-create_3d_scene(
-    camera_node="Camera1",
-    geometry_nodes=["Card1", "Sphere1"],
-    scene_name="TrackedScene"
-)
-```
-
-### Professional Keying Setup
-
-```python
-# Claude instruction: "Create a professional green screen keying setup"
-
-# 1. Set up advanced keyer
-setup_keyer(
-    input_node_name="GreenScreenPlate",
-    keyer_type="Primatte",
-    screen_color=[0, 0.7, 0],
-    output_name="KeyedForeground"
-)
-
-# 2. Set up basic composite
-setup_basic_comp(
-    plate_node="BackgroundPlate",
-    fg_elements=["KeyedForeground"],
-    bg_elements=["SkyReplacement"],
-    comp_name="FinalComposite"
-)
-
-# 3. Add motion blur if needed
-setup_motion_blur(
-    input_node_name="KeyedForeground",
-    vector_node_name="MotionVectors",
-    motion_blur_samples=20,
-    shutter_angle=180.0
-)
-```
-
-### Deep Compositing Pipeline
-
-```python
-# Claude instruction: "Set up a deep compositing pipeline for multiple passes"
-
-# Set up deep pipeline with multiple render passes
-setup_deep_pipeline(
-    input_nodes=[
-        "DeepBeauty",
-        "DeepReflections", 
-        "DeepRefraction",
-        "DeepGI"
-    ],
-    merge_operation="over",
-    output_name="DeepFinalOutput"
-)
-```
-
-### Machine Learning Workflow
-
-```python
-# Claude instruction: "Set up CopyCat for automated cleanup"
-
-# 1. Set up CopyCat for training
-setup_copycat(
-    training_input_node="DirtyPlate",
-    training_output_node="CleanPlate",
-    network_type="UNet",
-    model_name="CleanupModel"
-)
-
-# 2. Train the model
-train_copycat_model(
-    copycat_node_name="CleanupModel",
-    epochs=500,
-    batch_size=16,
-    learning_rate=0.0001
-)
-```
-
-### Template Management
-
-```python
-# Claude instruction: "Save my current keying setup as a template"
-
-# Save current selection as template
-save_template(
-    template_name="AdvancedKeyer",
-    node_names=["Primatte1", "EdgeBlur1", "Despill1", "Premult1"],
-    category="Keying",
-    description="Advanced green screen keying with edge cleanup"
-)
-
-# Later: Load the template
-load_template(
-    template_name="AdvancedKeyer",
-    position={"x": 500, "y": 200},
-    parameters={
-        "Primatte1": {"screenColor": [0, 0.8, 0.1]}
-    }
-)
-```
-
-### Batch Processing
-
-```python
-# Claude instruction: "Batch process all EXR files in this directory"
-
-batch_process(
-    input_directory="/path/to/input/frames",
-    output_directory="/path/to/output/frames",
-    file_pattern="*.exr",
-    process_script="/path/to/custom_process.py",
-    frame_range="1001-1100"
-)
-```
-
-## 🎛️ Advanced Features
-
-### Project Settings Management
-
-```python
-# Set up project for film work
-set_project_settings(
-    frame_range={"first": 1001, "last": 1200},
-    resolution={"width": 4096, "height": 2160},
-    fps=24.0,
-    color_management={
-        "colorManagement": "ACES",
-        "workingSpace": "ACEScg",
-        "viewTransform": "ACES 1.0 SDR-video"
-    }
-)
-```
-
-### Smart Node Layout
-
-```python
-# Auto-organize the node graph
-auto_layout_nodes(
-    selected_only=False,
-    layout_type="tree"  # Options: vertical, horizontal, grid, tree
-)
-```
-
-### Group and LiveGroup Creation
-
-```python
-# Create organized groups
-create_group(
-    name="ColorGrading",
-    node_names=["Grade1", "ColorCorrect1", "Saturation1"],
-    color=0xff0000  # Red color
-)
-
-# Create collaborative LiveGroups
-create_live_group(
-    name="ShotTemplate",
-    node_names=["Read1", "Grade1", "Write1"],
-    file_path="/shared/templates/shot_template.nk",
-    auto_publish=True
-)
-```
-
-## 🔧 Natural Language Examples
-
-Here are examples of how to instruct Claude using natural language:
-
-### Camera Tracking
-*"I need to track the camera in my shot. Set up a camera tracker with 250 features, solve it, and create a 3D scene."*
-
-### Keying
-*"Create a professional green screen setup with edge cleanup and despill for my footage."*
-
-### Compositing
-*"Build me a compositing tree with my hero element over the background, add some atmospheric elements, and include proper color grading."*
-
-### Machine Learning
-*"Set up CopyCat to automatically remove wire rigs from my action sequence."*
-
-### Templates
-*"Save my current node selection as a template called 'HeroGlow' in the Effects category."*
-
-### Batch Processing
-*"Process all the DPX files in /shots/seq01/ and apply color correction, then output as EXR."*
-
-### Deep Compositing
-*"Set up a deep compositing pipeline for my multi-pass render with separate beauty, reflection, and GI passes."*
-
-## 🚨 Troubleshooting
-
-### Connection Issues
-- Ensure Nuke is running and the addon is loaded
-- Check that port 9876 is not blocked by firewall
-- Verify the MCP server is connecting to the correct host/port
-
-### Feature Availability
-- **CopyCat**: Requires Foundry's CopyCat plugin
-- **Deep Tools**: Requires Nuke Studio or full Nuke license
-- **3D Features**: Available in all Nuke versions
-
-### Performance Tips
-- Use proxy mode for large sequences during setup
-- Enable GPU acceleration when available
-- Close unnecessary viewers during batch processing
-
-## 📚 API Reference
-
-### Camera Tracking Tools
-- `create_camera_tracker()` - Set up camera tracking
-- `solve_camera_track()` - Solve camera motion  
-- `create_3d_scene()` - Build 3D scene setup
-
-### Deep Compositing Tools
-- `setup_deep_pipeline()` - Create deep compositing workflow
-
-### Template Tools
-- `load_template()` - Load saved templates
-- `save_template()` - Save node configurations
-
-### ML Tools
-- `setup_copycat()` - Configure machine learning
-- `train_copycat_model()` - Train neural networks
-
-### Compositing Tools
-- `setup_keyer()` - Advanced keying workflows
-- `setup_basic_comp()` - Multi-layer compositing
-- `setup_motion_blur()` - Motion vector blur
-
-### Utility Tools
-- `batch_process()` - Directory processing
-- `auto_layout_nodes()` - Smart node arrangement
-- `set_project_settings()` - Project configuration
-
-This enhanced version transforms your Nuke MCP into a comprehensive VFX automation system that can handle everything from simple node creation to complex multi-stage pipelines. The natural language interface makes it incredibly powerful for both artists and technical directors.
-<img src="docs/banner_screenshot.png" alt="Nuke MCP Screenshot" width="100%">
+See [docs/LICENSE.md](docs/LICENSE.md) for license information.
 
 ---
 
-**Why use Nuke MCP (Portable)?**
-- ⚡ **No installs required** — unzip & run in seconds
-- 🤖 **Claude-powered AI** — automate node graph edits & context tasks
-- 🌐 **Offline-capable** — works with Claude Desktop portable
-- 🛠 **Pipeline-friendly** — integrates seamlessly into studio workflows
+**Made with ❤️ for the VFX community**
 
-📥 **[Download Latest Release](https://github.com/kevkshore/nuke-mcp/releases)** • 📚 **[Read the Docs](docs/README.md)**
+*Professional-grade Nuke + Claude AI integration for modern VFX workflows*
