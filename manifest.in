@@ -1,0 +1,16 @@
+include README.md
+include requirements.txt
+include *.py
+include *.bat
+include *.sh
+include *.json
+include *.toml
+include *.md
+recursive-include . *.py
+recursive-include . *.txt
+recursive-include . *.md
+recursive-exclude . __pycache__
+recursive-exclude . *.pyc
+recursive-exclude . *.pyo
+recursive-exclude . .git*
+recursive-exclude . venv
