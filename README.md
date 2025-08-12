@@ -202,7 +202,7 @@ MIT License - feel free to use in personal and commercial projects.
 
 - **Issues**: [GitHub Issues](https://github.com/yourusername/nuke-mcp/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/yourusername/nuke-mcp/discussions)
-- **Email**: mahit@example.com
+- **Email**: kevinkishore@live.co.uk
 
 ## 🎯 Roadmap
 
